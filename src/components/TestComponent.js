@@ -1,11 +1,16 @@
 import React from "react";
 
 class TestComponent extends React.Component{
-    render(){
+    state = {
+        name: `Long`,
+        age: 25,
+        address: `Thu Duc`,
+        school: `NTT`
+    };
+    render(){ 
         return (         
             <div>
-                Đây là Test component Của tui
-                
+                Tên Trưởng nhóm: {this.state.name} 
             </div>
         );
     }

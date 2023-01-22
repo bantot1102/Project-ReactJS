@@ -12,6 +12,7 @@ class App extends React.Component {
       <div>
       Hello World with ReactJS
       <MyComponent></MyComponent>
+      <TestComponent></TestComponent>
     </div>
     )
   }
