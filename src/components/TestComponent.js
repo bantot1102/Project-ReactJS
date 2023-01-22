@@ -10,7 +10,7 @@ class TestComponent extends React.Component{
     render(){ 
         return (         
             <div>
-                Tên Trưởng nhóm: {this.state.name} 
+                Test Test Component: {this.state.name} 
             </div>
         );
     }

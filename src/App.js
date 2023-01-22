@@ -11,8 +11,8 @@ class App extends React.Component {
     return (
       <div>
       Hello World with ReactJS
-      <MyComponent></MyComponent>
       <TestComponent></TestComponent>
+      <MyComponent></MyComponent>
     </div>
     )
   }
