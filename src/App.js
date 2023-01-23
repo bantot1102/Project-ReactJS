@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import MyComponent from './components/MyComponent';
@@ -9,10 +9,10 @@ import DisplayInfo from './components/DisplayInfo';
 class App extends React.Component {
   render(){
     return (
-      <div>
-      Hello World with ReactJS
-      <MyComponent/>
-    </div>
+      <>
+        Hello World with ReactJS
+        <MyComponent/>
+      </>
     )
   }
 }

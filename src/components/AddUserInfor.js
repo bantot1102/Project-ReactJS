@@ -31,21 +31,20 @@ class AddUserInfor extends React.Component {
         <div>
             <p>My name is: {this.state.name}</p>
             <p>I age: {this.state.age}</p>
-            <p>I live in: {this.state.address}</p>
 
             <form
             onSubmit={(event) => {
                 this.handleOnSubmit(event);
             }}>
 
-            <label>Hãy điền thông tin tên: </label>
+            <label>Your name: </label>
             <input
                 value={this.state.name}
                 type="text"
                 onChange={(event) => this.handleOnChangeName(event)}
             />
 
-            <label>Hãy điền thông tin tuổi: </label>
+            <label>Your age: </label>
             <input
                 value={this.state.age}
                 type="text"
