@@ -1,11 +1,9 @@
 import React from "react";
 
-class UserInfor extends React.Component {
+class AddUserInfor extends React.Component {
     state = {
-        name: "Kiet",
-        age: 23,
-        address: `HCM`,
-        school: `Nguyen Tat Thanh`,
+        name: `...`,
+        age: `...`,
     };
 
     handleOnChangeName = (event) => {
@@ -20,15 +18,13 @@ class UserInfor extends React.Component {
         });
     };
 
-    handleOnChangeAddress = (event) => {
-        this.setState({
-        address: event.target.value,
-        });
-    };
-
-    handleSubmit = (event) => {
+    handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(`Check state`, this.state);
+        this.props.handleAddNewUser({
+            id: Math.floor((Math.random() * 100) +1 ) + `- ramdom`,
+            name: this.state.name,
+            age: this.state.age
+        });
     };
     render() {
         return (
@@ -39,7 +35,7 @@ class UserInfor extends React.Component {
 
             <form
             onSubmit={(event) => {
-                this.handleSubmit(event);
+                this.handleOnSubmit(event);
             }}>
 
             <label>Hãy điền thông tin tên: </label>
@@ -48,7 +44,6 @@ class UserInfor extends React.Component {
                 type="text"
                 onChange={(event) => this.handleOnChangeName(event)}
             />
-            <button>Sumit</button>
 
             <label>Hãy điền thông tin tuổi: </label>
             <input
@@ -57,16 +52,10 @@ class UserInfor extends React.Component {
                 onChange={(event) => this.handleOnChangeAge(event)}
             />
 
-            <label>Hãy điền thông tin thành phố: </label>
-            <input
-                value={this.state.address}
-                type="text"
-                onChange={(event) => this.handleOnChangeAddress(event)}
-            />
             <button>Sumit</button>
             </form>
         </div>
         );
     }
 }
-export default UserInfor;
+export default AddUserInfor;

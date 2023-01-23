@@ -26,7 +26,6 @@ class DisplayInfo extends React.Component {
                 <div
                     key={user.id}
                     className={+user.age < 23 ? "colorBlue" : "colorRed"}>
-                    {console.log(user.name)}
                     <div>Name is: {user.name}</div>
                     <div>Age is: {user.age}</div>
                     <hr />
