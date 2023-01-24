@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './DisplayInfo.scss'
 import logo from './../logo.svg'
 
@@ -40,16 +40,21 @@ import logo from './../logo.svg'
 // }
 
 const DisplayInfo = (props) => {
-    const { listUsers,handleDeleteUser,isShowListUsers,handlShowHide } = props;
+    const { listUsers,handleDeleteUser } = props; // listUsers phải có props vì nó là 1 state, còn handleDeleteUser k có cũng đc vì nó là 1 func
+    const [isShowListUsers, setShowListUsers] = useState(true);
+    const handleShowHide = () =>{
+        setShowListUsers (!isShowListUsers);
+    }
+    
     return(
         <div className="Display-info-container">
             <div>
-                <span onClick={()=>{ props.handlShowHide()}}>
-                {props.isShowListUsers === true ? `Hide list users` : `Show list users`}
+                <span onClick={()=>{handleShowHide()}}>
+                {isShowListUsers === true ? `Hide list users` : `Show list users`}
                 </span>
             </div>
             
-            {props.isShowListUsers &&
+            {isShowListUsers &&
             <>
             {listUsers.map((user) => {
                 return (
