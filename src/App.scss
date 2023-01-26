@@ -82,6 +82,16 @@ body {
       }
     }
   }
+
+  .admin-container {
+    display: flex;
+
+    .admin-sidebar {
+      .pro-sidebar {
+        height: 100vh !important;
+      }
+    }
+  }
 }
 
 @media (min-width: 1450px) {
