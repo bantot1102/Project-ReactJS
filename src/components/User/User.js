@@ -1,8 +1,7 @@
 const User = (props) => {
   return (
     <div>
-      <div></div>
-      User Component
+      <span>User Component</span>
     </div>
   );
 };

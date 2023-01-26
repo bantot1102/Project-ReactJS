@@ -10,12 +10,88 @@ body {
 
 .app-container {
   .header-container {
-    .navbar-nav {
+    .btn-login {
+      height       : 40px;
+      border-radius: 5px;
+      margin-right : 15px;
+      padding      : 0 15px;
+      background   : #F2ECE4;
+      border       : 1px solid #535353
+    }
+
+    .btn-signUp {
+      height       : 40px;
+      border-radius: 5px;
+      padding      : 0 15px;
+      background   : #262627;
+      color        : white;
+
+      &:hover {
+        background: #504F50;
+      }
+    }
+
+    .navbar {
+      padding-top     : 20px;
+      z-index         : 10;
+      background-color: rgba(0, 0, 0, 0) !important;
+
       .nav-link {
         &.active {
           color: #FC7300;
         }
       }
     }
+  }
+
+  .homepage-container {
+    video {
+      position: fixed;
+      bottom  : -15px;
+      width   : 100vw;
+    }
+
+    .homepage-content {
+      padding       : 100px;
+      width         : 45%;
+      position      : relative;
+      display       : flex;
+      flex-direction: column;
+      gap           : 30px;
+
+      .title-1 {
+        font-size  : 64px;
+        font-weight: 400;
+      }
+
+      .title-2 {
+        font-size: 23px;
+      }
+
+      .title-3 {
+        button {
+          border-radius: 6px;
+          padding      : 10px 30px;
+          color        : white;
+          background   : #262627;
+
+          &:hover {
+            background: #504F50;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1450px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1450px !important;
   }
 }

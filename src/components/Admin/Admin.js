@@ -1,8 +1,7 @@
 const Admin = (props) => {
   return (
     <div>
-      <span></span>
-      Admin Component
+      <span>Admin Component</span>
     </div>
   );
 };
