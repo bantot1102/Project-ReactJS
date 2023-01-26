@@ -6,4 +6,17 @@
             height: 100vh !important;
         }
     }
+
+    .admin-content {
+        width: 100%;
+
+        .admin-header {
+            height: 40Px;
+            border: 1px solid #1E1F35;
+        }
+
+        .admin-main {
+            border: 1px solid rgb(216, 107, 214);
+        }
+    }
 }
