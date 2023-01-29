@@ -21,7 +21,6 @@ const ModalViewUser = (props) => {
   };
 
   useEffect(() => {
-    console.log(`run userEffect`, dataView);
     if (!_.isEmpty(dataView)) {
       //update state
       setEmail(dataView.email);
