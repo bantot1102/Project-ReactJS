@@ -18,7 +18,7 @@ import {
   FaRegLaughWink,
   FaHeart,
 } from "react-icons/fa";
-import sidebarBg from "../../assets/bg2.jpg";
+import sidebarBg from "../../assets/First EldenLord-lol-card.png";
 import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import "./SideBar.scss";
