@@ -5,12 +5,15 @@ import { postLogin } from "../../services/apiService";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../../redux/action/userAction";
+import { ImSpinner6 } from "react-icons/im";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -28,15 +31,18 @@ const Login = (props) => {
       toast.error("Invalid Password");
       return;
     }
+    setIsLoading(true);
     // submit apis
     let data = await postLogin(email, password);
     if (data && data.EC === 0) {
       dispatch(doLogin(data));
       toast.success(data.EM);
+      setIsLoading(false);
       navigate("/");
     }
     if (data && data.EC !== 0) {
       toast.error(data.EM);
+      setIsLoading(false);
     }
   };
   return (
@@ -64,8 +70,13 @@ const Login = (props) => {
         />
         <span>Forgot password?</span>
         <div>
-          <button className="btn-submit" onClick={() => handleLogin()}>
-            Login to PROJECT REACTJS
+          <button
+            className="btn-submit"
+            onClick={() => handleLogin()}
+            disabled={isLoading}
+          >
+            {isLoading === true && <ImSpinner6 className="loader-icon" />}
+            <span>Login to PROJECT REACTJS</span>
           </button>
         </div>
         <div className="text-center">
