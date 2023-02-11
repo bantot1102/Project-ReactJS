@@ -15,6 +15,15 @@
             border: 1px solid #1E1F35;
         }
 
-        .admin-main {}
+        .admin-main {
+            height: calc(100vh - 50px);
+        }
+
+        .user-pagination {
+            display        : flex;
+            justify-content: center;
+        }
+
+
     }
 }
