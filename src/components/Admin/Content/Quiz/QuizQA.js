@@ -13,6 +13,7 @@ import {
   getAllQuizForAdmin,
   postCreateNewQuestionForQuiz,
   postCreateNewAnswerForQuestion,
+  getQuizWithQA,
 } from "../../../../services/apiService";
 import { toast } from "react-toastify";
 
@@ -158,6 +159,45 @@ const QuizQA = (props) => {
   useEffect(() => {
     fetchQuiz();
   }, []);
+
+  useEffect(() => {
+    if (selectedQuiz && selectedQuiz.value) {
+      fetchQuizWithQA();
+    }
+  }, [selectedQuiz]);
+
+  //return a promise that resolves with a File instance
+  function urltoFile(url, filename, mimeType) {
+    return fetch(url)
+      .then(function (res) {
+        return res.arrayBuffer();
+      })
+      .then(function (buf) {
+        return new File([buf], filename, { type: mimeType });
+      });
+  }
+
+  const fetchQuizWithQA = async () => {
+    let rs = await getQuizWithQA(selectedQuiz.value);
+    if (rs && rs.EC === 0) {
+      //conver base64 to File object
+      let newQA = [];
+      for (let i = 0; i < rs.DT.qa.length; i++) {
+        let q = rs.DT.qa[i];
+        if (q.imageFile) {
+          q.imageName = `Question-${q.id}.png`;
+          q.imageFile = await urltoFile(
+            `data:image/png;base64,${q.imageFile}`,
+            `Question-${q.id}.png`,
+            `image/plain`
+          );
+          newQA.push(q);
+        }
+      }
+      setQuestions(newQA);
+    }
+  };
+
   const fetchQuiz = async () => {
     let res = await getAllQuizForAdmin();
     if (res && res.EC === 0) {
